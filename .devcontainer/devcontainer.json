@@ -1,1 +1,24 @@
-
+{
+    "name": "Python 3 & Playwright with Desktop",
+    "image": "mcr.microsoft.com/devcontainers/python:3.10",
+    "features": {
+        "ghcr.io/devcontainers/features/desktop-lite:1": {
+            "password": "codespace",
+            "webVnc": "true"
+        }
+    },
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y python3-pip && pip install playwright requests google-generativeai && playwright install --with-deps",
+    "forwardPorts": [6080],
+    "portsAttributes": {
+        "6080": {
+            "label": "Escritorio Virtual (VNC)"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python"
+            ]
+        }
+    }
+}
